@@ -20,6 +20,7 @@ import org.assertj.core.description.TextDescription;
 
 /**
  * An object that has a description.
+ * 有描述的对象。
  *
  * @param <SELF> the "self" type of this assertion class.
  *

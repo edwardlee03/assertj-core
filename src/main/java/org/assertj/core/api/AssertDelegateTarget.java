@@ -14,6 +14,7 @@ package org.assertj.core.api;
 
 /**
  * A marker interface that can be used to wrap your assertion within assertThat method for better readability.
+ * 一个标记接口，可用于将断言包装在assertThat方法中，以获得更好的可读性。
  * <p>
  * Consider the following MyButton and MyButtonAssert classes:
  * <pre><code class='java'> public class MyButton extends JButton {

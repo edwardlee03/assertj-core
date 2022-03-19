@@ -16,6 +16,7 @@ package org.assertj.core.api;
  * Interface implemented by all proxies and serves as a type safe setter.
  * One could also define such setters and access them by reflection but with reflection
  * there is a notable performance overhead if the methods need to be located for every call.
+ * 由所有代理实现的接口，作为类型安全的设置方法。
  */
 public interface AssertJProxySetup {
 

@@ -17,6 +17,7 @@ import org.assertj.core.presentation.Representation;
 
 /**
  * Information about an assertion.
+ * 关于断言的信息。
  * 
  * @author Alex Ruiz
  * @author Yvonne Wang
@@ -36,4 +37,5 @@ public interface AssertionInfo {
   Description description();
 
   Representation representation();
+
 }

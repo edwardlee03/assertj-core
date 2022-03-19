@@ -12,6 +12,9 @@
  */
 package org.assertj.core.api;
 
+/**
+ * 在断言之后的断言错误收集。
+ */
 @FunctionalInterface
 public interface AfterAssertionErrorCollected {
 

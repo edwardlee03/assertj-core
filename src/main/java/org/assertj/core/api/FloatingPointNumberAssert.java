@@ -16,6 +16,7 @@ import org.assertj.core.data.Offset;
 
 /**
  * Assertion methods applicable to floating-point <code>{@link Number}</code>s.
+ * 适用于浮点数值的断言方法。
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY" target="_blank">Emulating
  *          'self types' using Java Generics to simplify fluent API implementation</a>&quot; for more details.
  * @param <ACTUAL> the type of the "actual" value.

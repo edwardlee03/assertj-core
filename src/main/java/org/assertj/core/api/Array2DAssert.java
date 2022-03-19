@@ -13,7 +13,8 @@
 package org.assertj.core.api;
 
 /**
- * Assertions applicable to two-dimensional arrays,
+ * Assertions applicable to two-dimensional arrays.
+ * 适用于二维数组的断言方法。
  *
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating

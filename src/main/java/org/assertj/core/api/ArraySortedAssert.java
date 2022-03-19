@@ -17,6 +17,7 @@ import java.util.Comparator;
 /**
  * Assertions applicable to primitive arrays or arrays of elements either naturally {@link Comparable} or according to a given
  * {@link Comparator}.
+ * 适用于基本类型数组或可排序的元素数组的断言方法。
  * <p>
  * Note that the contract defined here is can't be totally applied to List (that's why its name is not SortedAssert), the
  * differences being that we can't check that - for empty List - the list parameter is comparable or compatible with given
