@@ -17,6 +17,7 @@ import org.assertj.core.data.Percentage;
 
 /**
  * Assertion methods applicable to <code>{@link Number}</code>s.
+ * 适用于数值的断言方法。
  * 
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating
