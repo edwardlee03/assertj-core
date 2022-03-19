@@ -71,7 +71,9 @@ import org.assertj.core.configuration.PreferredAssumptionException;
 import org.assertj.core.util.CheckReturnValue;
 
 /**
- * Behavior-driven development style entry point for assumption methods for different types, which allow to skip test execution when assumptions are not met.
+ * Behavior-driven development style entry point for assumption methods for different types,
+ * which allow to skip test execution when assumptions are not met.
+ * 对于不同类型的假设方法，行为驱动开发风格的入口点，它允许在假设不满足时跳过测试执行。
  * <p>
  * The difference with the {@link Assumptions} class is that entry point methods are named <b><code>given</code></b> instead of
  * <code>assumeThat</code>.
@@ -103,6 +105,8 @@ import org.assertj.core.util.CheckReturnValue;
 public final class BDDAssumptions {
 
   private BDDAssumptions() {}
+
+  // 数值
 
   /**
    * Creates a new assumption's instance for a <code>boolean</code> value.
@@ -1090,6 +1094,8 @@ public final class BDDAssumptions {
     return assumeThat(actual);
   }
 
+  // 字符序列/字符串
+
   /**
    * Creates a new assumption's instance for a {@link CharSequence} value.
    * <p>
@@ -1234,6 +1240,8 @@ public final class BDDAssumptions {
   public static ClassAssert given(Class<?> actual) {
     return assumeThat(actual);
   }
+
+  // 泛型
 
   /**
    * Creates a new assumption's instance for an object value.
@@ -1468,6 +1476,8 @@ public final class BDDAssumptions {
     return assumeThatCode(lambda);
   }
 
+  // 迭代器/集合
+
   /**
    * Creates a new assumption's instance for an {@link Iterable} value.
    * <p>
@@ -1602,6 +1612,8 @@ public final class BDDAssumptions {
     return assumeThat(actual);
   }
 
+  // 谓词对象
+
   /**
    * Creates a new assumption's instance for a {@link Predicate} value.
    * <p>
@@ -1718,6 +1730,8 @@ public final class BDDAssumptions {
   public static DoublePredicateAssert given(DoublePredicate actual) {
     return assumeThat(actual);
   }
+
+  // 可选值容器
 
   /**
    * Creates a new assumption's instance for an {@link Optional} value.
@@ -1836,6 +1850,8 @@ public final class BDDAssumptions {
     return assumeThat(actual);
   }
 
+  // 不可变的数据流
+
   /**
    * Creates a new assumption's instance for a {@link Stream} value.
    * <p>
@@ -1862,7 +1878,8 @@ public final class BDDAssumptions {
    * @return the {@link AbstractListAssert} assertion object to be used for validation.
    * @since 3.14.0
    */
-  public static <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> given(Stream<? extends ELEMENT> actual) {
+  public static <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> given(
+      Stream<? extends ELEMENT> actual) {
     return assumeThat(actual);
   }
 
@@ -1982,6 +1999,8 @@ public final class BDDAssumptions {
     return assumeThat(actual);
   }
 
+  // 异步并发
+
   /**
    * Creates a new assumption's instance for a {@link Future} value.
    * <p>
@@ -2008,7 +2027,8 @@ public final class BDDAssumptions {
    * @return the {@link AbstractFutureAssert} assertion object to be used for validation.
    * @since 3.14.0
    */
-  public static <RESULT> AbstractFutureAssert<?, ? extends Future<? extends RESULT>, RESULT> given(Future<RESULT> future) {
+  public static <RESULT> AbstractFutureAssert<?, ? extends Future<? extends RESULT>, RESULT> given(
+      Future<RESULT> future) {
     return assumeThat(future);
   }
 
@@ -2074,6 +2094,8 @@ public final class BDDAssumptions {
   public static <RESULT> CompletableFutureAssert<RESULT> given(CompletionStage<RESULT> stage) {
     return assumeThat(stage);
   }
+
+  // 原子对象
 
   /**
    * Creates a new assumption's instance for an {@link AtomicBoolean} value.
@@ -2490,6 +2512,8 @@ public final class BDDAssumptions {
     return assumeThat(actual);
   }
 
+  // 日期和时间
+
   /**
    * Creates a new assumption's instance for a {@link Date} value.
    * <p>
@@ -2743,6 +2767,8 @@ public final class BDDAssumptions {
   public static AbstractZonedDateTimeAssert<?> given(ZonedDateTime actual) {
     return assumeThat(actual);
   }
+
+  // 数据流
 
   /**
    * Creates a new assumption's instance for an {@link InputStream} value.
