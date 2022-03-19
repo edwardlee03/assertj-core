@@ -18,6 +18,7 @@ import org.opentest4j.MultipleFailuresError;
 
 /**
  * Parent interface for soft assertion implementations.
+ * 用于软断言实现的父接口。
  *
  * @author Fr Jeremy Krieg
  * @see AbstractSoftAssertions
@@ -41,8 +42,8 @@ public interface SoftAssertionsProvider extends AssertionErrorCollector {
    * @param actual The actual object-under-test.
    * @return A proxied assertion class for the given object-under-test.
    */
-  <SELF extends Assert<? extends SELF, ? extends ACTUAL>, ACTUAL> SELF proxy(Class<SELF> assertClass, Class<ACTUAL> actualClass,
-                                                                             ACTUAL actual);
+  <SELF extends Assert<? extends SELF, ? extends ACTUAL>, ACTUAL> SELF proxy(
+      Class<SELF> assertClass, Class<ACTUAL> actualClass, ACTUAL actual);
 
   /**
    * Verifies that no soft assertions have failed.

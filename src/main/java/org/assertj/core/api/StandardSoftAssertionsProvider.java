@@ -42,6 +42,9 @@ import java.util.stream.Stream;
 
 import org.assertj.core.util.CheckReturnValue;
 
+/**
+ * 用于Java 8软断言实现的父接口。
+ */
 @CheckReturnValue
 public interface StandardSoftAssertionsProvider extends Java6StandardSoftAssertionsProvider {
 
@@ -54,6 +57,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
   default PathAssert assertThat(Path actual) {
     return proxy(PathAssert.class, Path.class, actual);
   }
+
+  // 可选值容器
 
   /**
    * Create assertion for {@link java.util.Optional}.
@@ -100,6 +105,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
   default OptionalIntAssert assertThat(OptionalInt actual) {
     return proxy(OptionalIntAssert.class, OptionalInt.class, actual);
   }
+
+  // 日期和时间
 
   /**
    * Creates a new instance of <code>{@link LocalDateAssert}</code>.
@@ -194,6 +201,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
     return proxy(PeriodAssert.class, Period.class, actual);
   }
 
+  // 异步并发
+
   /**
    * Create assertion for {@link java.util.concurrent.CompletableFuture}.
    *
@@ -203,7 +212,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletableFuture<RESULT> actual) {
+  default <RESULT> CompletableFutureAssert<RESULT> assertThat(
+      CompletableFuture<RESULT> actual) {
     return proxy(CompletableFutureAssert.class, CompletableFuture.class, actual);
   }
 
@@ -218,9 +228,12 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletionStage<RESULT> actual) {
+  default <RESULT> CompletableFutureAssert<RESULT> assertThat(
+      CompletionStage<RESULT> actual) {
     return proxy(CompletableFutureAssert.class, CompletionStage.class, actual);
   }
+
+  // 函数式
 
   /**
    * Create assertion for {@link Predicate}.
@@ -270,6 +283,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
     return proxy(LongPredicateAssert.class, LongPredicate.class, actual);
   }
 
+  // 数据流
+
   /**
    * Creates a new instance of <code>{@link ListAssert}</code> from the given {@link Stream}.
    * <p>
@@ -282,7 +297,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> assertThat(Stream<? extends ELEMENT> actual) {
+  default <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> assertThat(
+      Stream<? extends ELEMENT> actual) {
     return proxy(ListAssert.class, Stream.class, actual);
   }
 
@@ -312,7 +328,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default AbstractListAssert<?, List<? extends Long>, Long, ObjectAssert<Long>> assertThat(LongStream actual) {
+  default AbstractListAssert<?, List<? extends Long>, Long, ObjectAssert<Long>> assertThat(
+      LongStream actual) {
     return proxy(ListAssert.class, LongStream.class, actual);
   }
 
@@ -327,7 +344,8 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default AbstractListAssert<?, List<? extends Integer>, Integer, ObjectAssert<Integer>> assertThat(IntStream actual) {
+  default AbstractListAssert<?, List<? extends Integer>, Integer, ObjectAssert<Integer>> assertThat(
+      IntStream actual) {
     return proxy(ListAssert.class, IntStream.class, actual);
   }
 
@@ -339,9 +357,12 @@ public interface StandardSoftAssertionsProvider extends Java6StandardSoftAsserti
    * @return the created assertion object.
    */
   @SuppressWarnings("unchecked")
-  default <ELEMENT> SpliteratorAssert<ELEMENT> assertThat(Spliterator<ELEMENT> actual) {
+  default <ELEMENT> SpliteratorAssert<ELEMENT> assertThat(
+      Spliterator<ELEMENT> actual) {
     return proxy(SpliteratorAssert.class, Spliterator.class, actual);
   }
+
+  // 长地址计数器
 
   /**
    * Create assertion for {@link LongAdder}.

@@ -45,6 +45,7 @@ import org.assertj.core.util.CheckReturnValue;
 
 /**
  * AbstractStandardSoftAssertions compatible with Android. Duplicated from {@link StandardSoftAssertionsProvider}.
+ * 用于Java 6软断言实现的父接口。
  *
  * @see StandardSoftAssertionsProvider
  *
@@ -52,6 +53,8 @@ import org.assertj.core.util.CheckReturnValue;
  */
 @CheckReturnValue
 public interface Java6StandardSoftAssertionsProvider extends SoftAssertionsProvider {
+  // 数值
+
   /**
    * Creates a new instance of <code>{@link BigDecimalAssert}</code>.
    *
@@ -207,6 +210,8 @@ public interface Java6StandardSoftAssertionsProvider extends SoftAssertionsProvi
   default ClassAssert assertThat(Class<?> actual) {
     return proxy(ClassAssert.class, Class.class, actual);
   }
+
+  // 集合
 
   /**
    * Creates a new instance of <code>{@link CollectionAssert}</code>.
@@ -612,6 +617,8 @@ public interface Java6StandardSoftAssertionsProvider extends SoftAssertionsProvi
   default DateAssert assertThat(Date actual) {
     return proxy(DateAssert.class, Date.class, actual);
   }
+
+  // 原子变量
 
   /**
    * Create assertion for {@link AtomicBoolean}.
