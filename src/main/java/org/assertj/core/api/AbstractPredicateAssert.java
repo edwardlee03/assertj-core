@@ -24,6 +24,7 @@ import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Assertions for {@link Predicate}.
+ * 谓词对象的断言。
  *
  * @param <T> type of the value contained in the {@link Predicate}.
  *

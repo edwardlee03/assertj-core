@@ -36,6 +36,7 @@ import org.assertj.core.util.CheckReturnValue;
 
 /**
  * Assertions for {@link java.util.Optional}.
+ * 可选值容器的断言。
  *
  * @param <SELF> the "self" type of this assertion class.
  * @param <VALUE> type of the value contained in the {@link java.util.Optional}.

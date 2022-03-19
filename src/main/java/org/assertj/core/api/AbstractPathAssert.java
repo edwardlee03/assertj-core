@@ -36,7 +36,8 @@ import org.assertj.core.util.CheckReturnValue;
 import org.assertj.core.util.VisibleForTesting;
 
 /**
- * Assertions for {@link Path} objects
+ * Assertions for {@link Path} objects.
+ * 文件路径对象的断言。
  *
  * <p>
  * Note that some assertions have two versions: a normal one and a "raw" one (for instance, {@code hasParent()} and
