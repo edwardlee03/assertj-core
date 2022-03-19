@@ -45,6 +45,7 @@ import org.assertj.core.util.CheckReturnValue;
 
 /**
  * AbstractBDDSoftAssertions compatible with Android. Duplicated from {@link BDDSoftAssertionsProvider}.
+ * Java 6的行为驱动开发的软断言提供者。
  *
  * @see BDDSoftAssertionsProvider
  *

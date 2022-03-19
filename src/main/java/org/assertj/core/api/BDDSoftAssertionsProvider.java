@@ -42,6 +42,9 @@ import java.util.stream.Stream;
 
 import org.assertj.core.util.CheckReturnValue;
 
+/**
+ * Java 8的行为驱动开发的软断言提供者。
+ */
 public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvider {
 
   /**
@@ -54,6 +57,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
   default PathAssert then(Path actual) {
     return proxy(PathAssert.class, Path.class, actual);
   }
+
+  // 可选值容器
 
   /**
    * Create assertion for {@link Optional}.
@@ -104,6 +109,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
   default OptionalLongAssert then(OptionalLong actual) {
     return proxy(OptionalLongAssert.class, OptionalLong.class, actual);
   }
+
+  // 日期和时间
 
   /**
   * Creates a new instance of <code>{@link LocalDateAssert}</code>.
@@ -207,6 +214,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
     return proxy(PeriodAssert.class, Period.class, actual);
   }
 
+  // 异步并发
+
   /**
    * Create assertion for {@link java.util.concurrent.CompletableFuture}.
    *
@@ -217,7 +226,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default <RESULT> CompletableFutureAssert<RESULT> then(CompletableFuture<RESULT> actual) {
+  default <RESULT> CompletableFutureAssert<RESULT> then(
+      CompletableFuture<RESULT> actual) {
     return proxy(CompletableFutureAssert.class, CompletableFuture.class, actual);
   }
 
@@ -233,9 +243,12 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default <RESULT> CompletableFutureAssert<RESULT> then(CompletionStage<RESULT> actual) {
+  default <RESULT> CompletableFutureAssert<RESULT> then(
+      CompletionStage<RESULT> actual) {
     return proxy(CompletableFutureAssert.class, CompletionStage.class, actual);
   }
+
+  // 函数式
 
   /**
    * Create assertion for {@link Predicate}.
@@ -289,6 +302,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
     return proxy(LongPredicateAssert.class, LongPredicate.class, actual);
   }
 
+  // 数据流
+
   /**
    * Creates a new instance of <code>{@link ListAssert}</code> from the given {@link Stream}.
    * <p>
@@ -302,7 +317,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> then(Stream<? extends ELEMENT> actual) {
+  default <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> then(
+      Stream<? extends ELEMENT> actual) {
     return proxy(ListAssert.class, Stream.class, actual);
   }
 
@@ -318,7 +334,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default AbstractListAssert<?, List<? extends Double>, Double, ObjectAssert<Double>> then(DoubleStream actual) {
+  default AbstractListAssert<?, List<? extends Double>, Double, ObjectAssert<Double>> then(
+      DoubleStream actual) {
     return proxy(ListAssert.class, DoubleStream.class, actual);
   }
 
@@ -334,7 +351,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default AbstractListAssert<?, List<? extends Long>, Long, ObjectAssert<Long>> then(LongStream actual) {
+  default AbstractListAssert<?, List<? extends Long>, Long, ObjectAssert<Long>> then(
+      LongStream actual) {
     return proxy(ListAssert.class, LongStream.class, actual);
   }
 
@@ -350,7 +368,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default AbstractListAssert<?, List<? extends Integer>, Integer, ObjectAssert<Integer>> then(IntStream actual) {
+  default AbstractListAssert<?, List<? extends Integer>, Integer, ObjectAssert<Integer>> then(
+      IntStream actual) {
     return proxy(ListAssert.class, IntStream.class, actual);
   }
 
@@ -364,9 +383,12 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    */
   @SuppressWarnings("unchecked")
   @CheckReturnValue
-  default <ELEMENT> SpliteratorAssert<ELEMENT> then(Spliterator<ELEMENT> actual) {
+  default <ELEMENT> SpliteratorAssert<ELEMENT> then(
+      Spliterator<ELEMENT> actual) {
     return proxy(SpliteratorAssert.class, Spliterator.class, actual);
   }
+
+  // 长地址计数器
 
   /**
    * Create assertion for {@link LongAdder}.
@@ -376,7 +398,8 @@ public interface BDDSoftAssertionsProvider extends Java6BDDSoftAssertionsProvide
    * @since 3.16.0
    */
   @CheckReturnValue
-  default LongAdderAssert then(LongAdder actual) {
+  default LongAdderAssert then(
+      LongAdder actual) {
     return proxy(LongAdderAssert.class, LongAdder.class, actual);
   }
 
