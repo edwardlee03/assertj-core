@@ -70,6 +70,7 @@ import org.assertj.core.util.CheckReturnValue;
 
 /**
  * A unified entry point to all assumptions from both the new Java 8 core API and the pre-Java 8 core API.
+ * 新的Java 8核心API的所有假设的统一入口点。
  *
  * As a convenience, the methods are defined in an interface so that no static imports are necessary if the test class
  * implements this interface.
