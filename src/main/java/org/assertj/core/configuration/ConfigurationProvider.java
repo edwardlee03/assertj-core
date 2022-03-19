@@ -24,6 +24,7 @@ import org.assertj.core.presentation.StandardRepresentation;
 
 /**
  * Provider for all the configuration settings / parameters within AssertJ.
+ * AssertJ中所有配置设置/参数的提供程序。
  * <p>
  * All the configuration possibilities are registered via an SPI.
  *

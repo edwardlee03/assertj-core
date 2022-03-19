@@ -31,6 +31,7 @@ import org.assertj.core.presentation.Representation;
 
 /**
  * All configuration settings for AssertJ Core.
+ * AssertJ Core的所有配置设置。
  *
  * @since 3.13.0
  */

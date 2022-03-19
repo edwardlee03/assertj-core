@@ -21,6 +21,7 @@ import java.util.ServiceLoader;
 
 /**
  * A simple locator for SPI implementations.
+ * 一个SPI实现的简单定位器。
  *
  * @author Filip Hrisafov
  */

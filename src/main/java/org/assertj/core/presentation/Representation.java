@@ -19,6 +19,7 @@ import org.assertj.core.configuration.Configuration;
 
 /**
  * Controls the formatting (String representation) of types in assertion error messages.
+ * 控制断言错误消息中类型的格式化(字符串表示形式)。
  * <p>
  * There are several ways to replace the {@link StandardRepresentation} as the default {@link Representation}:  
  * <ul>
