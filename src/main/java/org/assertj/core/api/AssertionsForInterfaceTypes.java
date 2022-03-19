@@ -33,7 +33,9 @@ import org.assertj.core.util.CheckReturnValue;
 
 /**
  * Entry point for assertion methods for different data types. Each method in this class is a static factory for the
- * type-specific assertion objects. The purpose of this class is to make test code more readable.
+ * type-specific assertion objects. The purpose of this class is to make test code more readable.`
+ * 不同数据类型的断言方法的入口点。
+ * 该类中的每个方法都是特定类型断言对象的静态工厂，该类的目的是使测试代码更具可读性。
  * <p>
  * For example:
  *
@@ -66,6 +68,7 @@ import org.assertj.core.util.CheckReturnValue;
  */
 @CheckReturnValue
 public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
+  // 断言对象的提供者
 
   /**
    * Delegates the creation of the {@link Assert} to the {@link AssertProvider#assertThat()} of the given component.
@@ -78,7 +81,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * @param component the component that creates its own assert
    * @return the associated {@link Assert} of the given component
    */
-  public static <T> T assertThat(final AssertProvider<T> component) {
+  public static <T> T assertThat(
+      final AssertProvider<T> component) {
     return component.assertThat();
   }
 
@@ -86,6 +90,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * Creates a new <code>{@link Assertions}</code>.
    */
   protected AssertionsForInterfaceTypes() {}
+
+  // 字符序列
 
   /**
    * Creates a new instance of <code>{@link CharSequenceAssert}</code>.
@@ -96,6 +102,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
   public static AbstractCharSequenceAssert<?, ? extends CharSequence> assertThat(CharSequence actual) {
     return new CharSequenceAssert(actual);
   }
+
+  // 迭代器/集合
 
   /**
    * Creates a new instance of <code>{@link IterableAssert}</code>.
@@ -141,6 +149,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
   public static <ELEMENT> ListAssert<ELEMENT> assertThat(List<? extends ELEMENT> actual) {
     return new ListAssert<>(actual);
   }
+
+  // 不可变的数据流
 
   /**
    * Creates a new instance of <code>{@link ListAssert}</code> from the given {@link Stream}.
@@ -336,7 +346,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
    * @param actual the actual value.
    * @return the created assertion object.
    */
-  public static <T extends Comparable<? super T>> AbstractComparableAssert<?, T> assertThat(T actual) {
+  public static <T extends Comparable<? super T>> AbstractComparableAssert<?, T> assertThat(
+      T actual) {
     return new GenericComparableAssert<>(actual);
   }
 
@@ -394,6 +405,8 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
   public static <T extends AssertDelegateTarget> T assertThat(T assertion) {
     return assertion;
   }
+
+  // 谓词对象
 
   /**
    * Create assertion for {@link Predicate}.
@@ -465,4 +478,5 @@ public class AssertionsForInterfaceTypes extends AssertionsForClassTypes {
   public static <ELEMENT> SpliteratorAssert<ELEMENT> assertThat(Spliterator<ELEMENT> actual) {
     return new SpliteratorAssert<>(actual);
   }
+
 }

@@ -110,6 +110,7 @@ import org.assertj.core.util.introspection.Introspection;
 /**
  * Entry point for assertion methods for different types. Each method in this class is a static factory for a
  * type-specific assertion object.
+ * 不同类型的断言方法的入口点。该类中的每个方法都是特定类型断言对象的静态工厂。
  * <p>
  * For example:
  *
@@ -154,6 +155,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * Creates a new <code>{@link Assertions}</code>.
    */
   protected Assertions() {}
+
+  // 谓词对象
 
   /**
    * Create assertion for {@link Predicate}.
@@ -204,6 +207,8 @@ public class Assertions implements InstanceOfAssertFactories {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
 
+  // 异步并发
+
   /**
    * Create assertion for {@link java.util.concurrent.CompletableFuture}.
    *
@@ -212,7 +217,8 @@ public class Assertions implements InstanceOfAssertFactories {
    *
    * @return the created assertion object.
    */
-  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletableFuture<RESULT> actual) {
+  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(
+      CompletableFuture<RESULT> actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
 
@@ -226,9 +232,12 @@ public class Assertions implements InstanceOfAssertFactories {
    *
    * @return the created assertion object.
    */
-  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletionStage<RESULT> actual) {
+  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(
+      CompletionStage<RESULT> actual) {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
+
+  // 可选值容器
 
   /**
    * Create assertion for {@link java.util.Optional}.
@@ -238,7 +247,8 @@ public class Assertions implements InstanceOfAssertFactories {
    *
    * @return the created assertion object.
    */
-  public static <VALUE> OptionalAssert<VALUE> assertThat(Optional<VALUE> actual) {
+  public static <VALUE> OptionalAssert<VALUE> assertThat(
+      Optional<VALUE> actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
 
@@ -274,6 +284,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static OptionalLongAssert assertThat(OptionalLong actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
+
+  // 高精度数值
 
   /**
    * Creates a new instance of <code>{@link BigDecimalAssert}</code>.
@@ -315,6 +327,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static AbstractUrlAssert<?> assertThat(URL actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
+
+  // 基本类型
 
   /**
    * Creates a new instance of <code>{@link BooleanAssert}</code>.
@@ -883,6 +897,8 @@ public class Assertions implements InstanceOfAssertFactories {
     return AssertionsForClassTypes.assertThat(actual);
   }
 
+  // 日期和时间
+
   /**
    * Creates a new instance of <code>{@link DateAssert}</code>.
    *
@@ -985,6 +1001,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static AbstractPeriodAssert<?> assertThat(Period actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
+
+  // 原子对象
 
   /**
    * Create assertion for {@link AtomicBoolean}.
@@ -1137,6 +1155,8 @@ public class Assertions implements InstanceOfAssertFactories {
     return new AtomicStampedReferenceAssert<>(actual);
   }
 
+  // 泛型
+
   /**
    * Creates a new instance of <code>{@link ThrowableAssert}</code>.
    *
@@ -1144,7 +1164,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * @param actual the actual value.
    * @return the created {@link ThrowableAssert}.
    */
-  public static <T extends Throwable> AbstractThrowableAssert<?, T> assertThat(T actual) {
+  public static <T extends Throwable> AbstractThrowableAssert<?, T> assertThat(
+      T actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
 
@@ -1310,6 +1331,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static <T> ObjectAssert<T> assertWith(T actual, Consumer<T>... requirements) {
     return assertThat(actual).satisfies(requirements);
   }
+
+  // 捕获异常
 
   /**
    * Allows catching a {@link Throwable} more easily when used with Java 8 lambdas.
@@ -1688,6 +1711,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static void setRemoveAssertJRelatedElementsFromStackTrace(boolean removeAssertJRelatedElementsFromStackTrace) {
     Fail.setRemoveAssertJRelatedElementsFromStackTrace(removeAssertJRelatedElementsFromStackTrace);
   }
+
+  // 失败
 
   /**
    * Throws an {@link AssertionError} with the given message.
@@ -3022,6 +3047,8 @@ public class Assertions implements InstanceOfAssertFactories {
     AbstractDateAssert.useDefaultDateFormatsOnly();
   }
 
+  // 断言对象提供者
+
   /**
    * Delegates the creation of the {@link Assert} to the {@link AssertProvider#assertThat()} of the given component.
    *
@@ -3037,6 +3064,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static <T> T assertThat(final AssertProvider<T> component) {
     return AssertionsForInterfaceTypes.assertThat(component);
   }
+
+  // 字符序列/字符串
 
   /**
    * Creates a new instance of <code>{@link CharSequenceAssert}</code>.
@@ -3079,6 +3108,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static AbstractStringAssert<?> assertThat(String actual) {
     return AssertionsForClassTypes.assertThat(actual);
   }
+
+  // 迭代器/集合
 
   /**
    * Creates a new instance of <code>{@link IterableAssert}</code>.
@@ -3136,6 +3167,8 @@ public class Assertions implements InstanceOfAssertFactories {
   public static <ELEMENT> ListAssert<ELEMENT> assertThat(List<? extends ELEMENT> actual) {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
+
+  // 不可变的数据流
 
   /**
    * Creates a new instance of <code>{@link ListAssert}</code> from the given {@link Stream}.
@@ -3307,7 +3340,8 @@ public class Assertions implements InstanceOfAssertFactories {
    * @param actual the actual value.
    * @return the created assertion object.
    */
-  public static <T extends Comparable<? super T>> AbstractComparableAssert<?, T> assertThat(T actual) {
+  public static <T extends Comparable<? super T>> AbstractComparableAssert<?, T> assertThat(
+      T actual) {
     return AssertionsForInterfaceTypes.assertThat(actual);
   }
 

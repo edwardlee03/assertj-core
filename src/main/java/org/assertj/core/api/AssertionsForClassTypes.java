@@ -67,6 +67,7 @@ import org.assertj.core.util.introspection.FieldSupport;
  * for example if foo is instance of T that extends Exception, java 8  will complain that it can't resolve
  * the proper <code>assertThat</code> method (normally <code>assertThat(Throwable)</code> as foo might implement an interface like List,
  * if that occurred <code>assertThat(List)</code> would also be a possible choice - thus confusing java 8.
+ * Java 8在选择正确的assertThat方法时很挑剔，如果测试对象是泛型和有界的，
  * <p>
  * This why {@link Assertions} have been split in {@link AssertionsForClassTypes} and {@link AssertionsForInterfaceTypes}
  * (see http://stackoverflow.com/questions/29499847/ambiguous-method-in-java-8-why).
@@ -82,9 +83,12 @@ public class AssertionsForClassTypes {
    *
    * @return the created assertion object.
    */
-  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(CompletableFuture<RESULT> actual) {
+  public static <RESULT> CompletableFutureAssert<RESULT> assertThat(
+      CompletableFuture<RESULT> actual) {
     return new CompletableFutureAssert<>(actual);
   }
+
+  // 可选值容器
 
   /**
    * Create assertion for {@link java.util.Optional}.
@@ -160,6 +164,8 @@ public class AssertionsForClassTypes {
   public static AbstractUrlAssert<?> assertThat(URL actual) {
     return new UrlAssert(actual);
   }
+
+  // 基本类型和包装类型
 
   /**
    * Creates a new instance of <code>{@link BooleanAssert}</code>.
@@ -553,6 +559,8 @@ public class AssertionsForClassTypes {
     return new Short2DArrayAssert(actual);
   }
 
+  // 字符串
+
   /**
    * Creates a new instance of <code>{@link CharSequenceAssert}</code> from a {@link StringBuilder}.
    *
@@ -560,7 +568,8 @@ public class AssertionsForClassTypes {
    * @return the created assertion object.
    * @since 3.11.0
    */
-  public static AbstractCharSequenceAssert<?, ? extends CharSequence> assertThat(StringBuilder actual) {
+  public static AbstractCharSequenceAssert<?, ? extends CharSequence> assertThat(
+      StringBuilder actual) {
     return new CharSequenceAssert(actual);
   }
 
@@ -584,6 +593,8 @@ public class AssertionsForClassTypes {
   public static AbstractStringAssert<?> assertThat(String actual) {
     return new StringAssert(actual);
   }
+
+  // 日期和时间
 
   /**
    * Creates a new instance of <code>{@link DateAssert}</code>.
@@ -695,9 +706,12 @@ public class AssertionsForClassTypes {
    * @param actual the actual value.
    * @return the created {@link ThrowableAssert}.
    */
-  public static <T extends Throwable> AbstractThrowableAssert<?, T> assertThat(T actual) {
+  public static <T extends Throwable> AbstractThrowableAssert<?, T> assertThat(
+      T actual) {
     return new ThrowableAssert<>(actual);
   }
+
+  // 断言异常
 
   /**
    * Allows to capture and then assert on a {@link Throwable} (easier done with lambdas).
@@ -849,6 +863,8 @@ public class AssertionsForClassTypes {
     return assertThat(catchThrowable(shouldRaiseOrNotThrowable));
   }
 
+  // 捕获异常
+
   /**
    * Allows catching a {@link Throwable} more easily when used with Java 8 lambdas.
    *
@@ -934,6 +950,8 @@ public class AssertionsForClassTypes {
     Fail.setRemoveAssertJRelatedElementsFromStackTrace(removeAssertJRelatedElementsFromStackTrace);
   }
 
+  // 失败
+
   /**
    * Only delegate to {@link Fail#fail(String)} so that Assertions offers a full feature entry point to all Assertj
    * Assert features (but you can use Fail if you prefer).
@@ -1014,6 +1032,8 @@ public class AssertionsForClassTypes {
   // ------------------------------------------------------------------------------------------------------
   // properties methods : not assertions but here to have a single entry point to all AssertJ features.
   // ------------------------------------------------------------------------------------------------------
+
+  // 抽取属性字段
 
   /**
    * Only delegate to {@link Properties#extractProperty(String)} so that Assertions offers a full feature entry point
