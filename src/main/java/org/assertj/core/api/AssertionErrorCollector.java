@@ -15,6 +15,9 @@ package org.assertj.core.api;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * 断言错误收集器。
+ */
 public interface AssertionErrorCollector extends AfterAssertionErrorCollected {
 
   /**
