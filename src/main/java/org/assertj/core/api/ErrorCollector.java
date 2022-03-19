@@ -28,6 +28,9 @@ public class ErrorCollector {
 
   public static final String FIELD_NAME = "errorCollector";
 
+  /**
+   * 拦截方法名称
+   */
   private static final String INTERCEPT_METHOD_NAME = "intercept";
   private static final String CLASS_NAME = ErrorCollector.class.getName();
 
@@ -47,11 +50,12 @@ public class ErrorCollector {
    * @throws Exception may be thrown from the assertion proxy call
    */
   @RuntimeType
-  public static Object intercept(@FieldValue(FIELD_NAME) ErrorCollector errorCollector,
-                                 @This Object assertion,
-                                 @SuperCall Callable<?> proxy,
-                                 @SuperMethod(nullIfImpossible = true) Method method,
-                                 @StubValue Object stub) throws Exception {
+  public static Object intercept(
+      @FieldValue(FIELD_NAME) ErrorCollector errorCollector,
+      @This Object assertion,
+      @SuperCall Callable<?> proxy,
+      @SuperMethod(nullIfImpossible = true) Method method,
+      @StubValue Object stub) throws Exception {
     try {
       Object result = proxy.call();
       errorCollector.succeeded();

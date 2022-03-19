@@ -16,6 +16,7 @@ import java.util.function.Consumer;
 
 /**
  * {@link Consumer} that deals with checked exceptions by rethrowing them as {@link RuntimeException}.
+ * 通过将它们作为运行时异常重新抛出来处理受控异常的消费者。
  * <p>
  * More precisely, {@link RuntimeException} and {@link AssertionError} are rethrown as they are while any other {@link Throwable} are rethrown as {@link RuntimeException}. 
  *
@@ -36,4 +37,5 @@ public interface ThrowingConsumer<T> extends Consumer<T> {
   }
 
   void acceptThrows(T input) throws Throwable;
+
 }

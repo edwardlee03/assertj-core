@@ -65,6 +65,7 @@ import java.util.stream.Stream;
 
 /**
  * Static {@link InstanceOfAssertFactory InstanceOfAssertFactories} for {@link Assert#asInstanceOf(InstanceOfAssertFactory)}.
+ * 断言工厂的实例列表。
  *
  * @author Stefano Cordio
  * @since 3.13.0
