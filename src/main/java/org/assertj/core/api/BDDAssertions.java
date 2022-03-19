@@ -99,6 +99,8 @@ import org.assertj.core.util.CheckReturnValue;
 /**
  * Behavior-driven development style entry point for assertion methods for different types. Each method in this class is a static factory
  * for a type-specific assertion object.
+ * 不同类型的断言方法的行为驱动开发风格入口点。
+ * 该类中的每个方法都是特定类型断言对象的静态工厂。
  * <p>
  * The difference with the {@link Assertions} class is that entry point methods are named <code>then</code> instead of
  * <code>assertThat</code>.
@@ -182,6 +184,8 @@ public class BDDAssertions extends Assertions {
    */
   public static final BDDAssertions and = new BDDAssertions();
 
+  // 谓词对象
+
   /**
    * Create assertion for {@link Predicate}.
    *
@@ -231,6 +235,8 @@ public class BDDAssertions extends Assertions {
     return assertThat(actual);
   }
 
+  // 可选值容器
+
   /**
    * Create assertion for {@link java.util.Optional}.
    *
@@ -275,6 +281,8 @@ public class BDDAssertions extends Assertions {
   public static OptionalDoubleAssert then(OptionalDouble optional) {
     return assertThat(optional);
   }
+
+  // 数值
 
   /**
    * Creates a new instance of <code>{@link org.assertj.core.api.BigDecimalAssert}</code>.
@@ -1329,6 +1337,8 @@ public class BDDAssertions extends Assertions {
     return then(actual).satisfies(requirements);
   }
 
+  // 日期和时间
+
   /**
    * Creates a new instance of <code>{@link org.assertj.core.api.LocalDateAssert}</code>.
    *
@@ -1522,6 +1532,8 @@ public class BDDAssertions extends Assertions {
     return assertion;
   }
 
+  // 断言对象的提供者
+
   /**
    * Delegates the creation of the {@link Assert} to the {@link AssertProvider#assertThat()} of the given component.
    *
@@ -1537,6 +1549,8 @@ public class BDDAssertions extends Assertions {
   public static <T> T then(final AssertProvider<T> component) {
     return component.assertThat();
   }
+
+  // 不可变的数据流
 
   /**
    * Creates a new instance of <code>{@link ListAssert}</code> from the given {@link Stream}.
@@ -1674,6 +1688,8 @@ public class BDDAssertions extends Assertions {
   public static <ELEMENT> SpliteratorAssert<ELEMENT> then(Spliterator<ELEMENT> actual) {
     return assertThat(actual);
   }
+
+  // 捕获异常
 
   /**
    * Allows catching a {@link Throwable} more easily when used with Java 8 lambdas.
@@ -2049,6 +2065,8 @@ public class BDDAssertions extends Assertions {
   public static void setRemoveAssertJRelatedElementsFromStackTrace(boolean removeAssertJRelatedElementsFromStackTrace) {
     Assertions.setRemoveAssertJRelatedElementsFromStackTrace(removeAssertJRelatedElementsFromStackTrace);
   }
+
+  // 失败
 
   /**
    * Throws an {@link AssertionError} with the given message.
