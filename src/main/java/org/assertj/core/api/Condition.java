@@ -24,6 +24,7 @@ import org.assertj.core.util.VisibleForTesting;
 
 /**
  * A condition to be met by an object.
+ * 一个对象要满足的条件。
  *
  * @param <T> the type of object this condition accepts.
  *

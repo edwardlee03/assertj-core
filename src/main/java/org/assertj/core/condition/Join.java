@@ -29,6 +29,7 @@ import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Join of two or more <code>{@link Condition}</code>s.
+ * 多个条件的组合。
  * @param <T> the type of object this condition accepts.
  *
  * @author Yvonne Wang
