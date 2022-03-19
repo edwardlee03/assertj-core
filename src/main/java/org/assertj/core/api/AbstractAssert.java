@@ -52,6 +52,7 @@ import org.assertj.core.util.VisibleForTesting;
 
 /**
  * Base class for all assertions.
+ * 所有断言的基类。
  *
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
@@ -63,7 +64,8 @@ import org.assertj.core.util.VisibleForTesting;
  * @author Mikhail Mazursky
  * @author Nicolas François
  */
-public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, ACTUAL> implements Assert<SELF, ACTUAL> {
+public abstract class AbstractAssert<SELF extends AbstractAssert<SELF, ACTUAL>, ACTUAL>
+    implements Assert<SELF, ACTUAL> {
 
   // https://github.com/assertj/assertj-core/issues/1128
   public static boolean throwUnsupportedExceptionOnEquals = true;
