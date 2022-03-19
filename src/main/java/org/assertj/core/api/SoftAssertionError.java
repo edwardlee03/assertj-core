@@ -19,11 +19,13 @@ import java.util.List;
 /**
  * An AssertionError that contains the error messages of the one or more AssertionErrors that caused this exception to
  * be thrown.
+ * 软断言错误。
  * 
  * @author Brian Laframboise
  * 
  */
 public class SoftAssertionError extends AssertionError {
+
   private static final long serialVersionUID = 5034494920024670595L;
   private final List<String> errors;
 

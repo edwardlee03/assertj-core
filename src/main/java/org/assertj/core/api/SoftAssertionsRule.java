@@ -18,7 +18,11 @@ import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
+/**
+ * 软断言的测试规则。
+ */
 public interface SoftAssertionsRule extends SoftAssertionsProvider, TestRule {
+
   @Override
   default Statement apply(final Statement base, Description description) {
     return softAssertionsStatement(this, base);
