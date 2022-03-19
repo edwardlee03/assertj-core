@@ -22,6 +22,7 @@ import org.assertj.core.presentation.StandardRepresentation;
 
 /**
  * Base contract of all assertion objects: the minimum functionality that any assertion object should provide.
+ * 所有断言对象的基本契约：任何断言对象应该提供的最小功能。
  *
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating
@@ -33,7 +34,9 @@ import org.assertj.core.presentation.StandardRepresentation;
  * @author Nicolas François
  * @author Mikhail Mazursky
  */
-public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descriptable<SELF>, ExtensionPoints<SELF, ACTUAL> {
+public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL>
+    extends Descriptable<SELF>, ExtensionPoints<SELF, ACTUAL> {
+  // 内容相等
 
   /**
    * Verifies that the actual value is equal to the given one.
@@ -70,6 +73,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * @throws AssertionError if the actual value is equal to the given one.
    */
   SELF isNotEqualTo(Object other);
+
+  // 对象
 
   /**
    * Verifies that the actual value is {@code null}.
@@ -147,6 +152,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * @throws AssertionError if the actual value is the same as the given one.
    */
   SELF isNotSameAs(Object other);
+
+  // 集合包含
 
   /**
    * Verifies that the actual value is present in the given array of values.
@@ -236,6 +243,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    */
   SELF isNotIn(Iterable<?> values);
 
+  // 排序
+
   /**
    * Use the given custom comparator instead of relying on actual type A equals method for incoming assertion checks.
    * <p>
@@ -279,6 +288,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * @return {@code this} assertion object.
    */
   SELF usingDefaultComparator();
+
+  // 实例类型
 
   /**
    * Uses an {@link InstanceOfAssertFactory} to verify that the actual value is an instance of a given type and to produce
@@ -595,6 +606,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    */
   SELF isNotOfAnyClassIn(Class<?>... types);
 
+  // 集合
+
   /**
    * Verifies that the actual value is an instance of List,
    * and returns a list assertion, to allow chaining of list-specific
@@ -614,6 +627,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * @return a list assertion object
    */
   AbstractListAssert<?, List<?>, Object, ObjectAssert<Object>> asList();
+
+  // 字符串
 
   /**
    * Returns a String assertion for the <code>toString()</code> of the actual
@@ -641,6 +656,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
   @Override
   @Deprecated
   boolean equals(Object obj);
+
+  // 错误时线程调用栈转储
 
   /**
    * In case of an assertion error, a thread dump will be printed to {@link System#err}.
@@ -737,6 +754,8 @@ public interface Assert<SELF extends Assert<SELF, ACTUAL>, ACTUAL> extends Descr
    * @return this assertion object.
    */
   SELF withRepresentation(Representation representation);
+
+  // 散列值
 
   /**
    * Verifies that the actual object has the same hashCode as the given object.
