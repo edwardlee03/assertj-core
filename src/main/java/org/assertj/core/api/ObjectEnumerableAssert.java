@@ -18,6 +18,7 @@ import java.util.function.Predicate;
 
 /**
  * Assertions methods applicable to groups of objects (e.g. arrays or collections.)
+ * 适用于对象列表组的断言方法，例如数组或集合。
  *
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating 'self types' using Java Generics to simplify fluent API implementation</a>&quot;
