@@ -16,6 +16,7 @@ package org.assertj.core.api;
  * A single method factory interface to create an {@link Assert} for a given value.
  * This factory method typically wraps a call to <code>assertThat(t)</code> to produce a concrete assert type {@code ASSERT}
  * for the input element of type {@code T}.
+ * 方法工厂接口，为给定的值创建一个断言对象。
  * <p>
  * This interface is typically used by navigation assertions on iterable types like {@link AbstractIterableAssert} when calling
  * {@link Assertions#assertThat(Iterable, AssertFactory) assertThat(Iterable&lt;E&gt;, AssertFactory&lt;E, ASSERT&gt;)}
