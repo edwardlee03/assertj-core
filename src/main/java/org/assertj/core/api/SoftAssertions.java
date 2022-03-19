@@ -17,6 +17,7 @@ import java.util.function.Consumer;
 import org.opentest4j.MultipleFailuresError;
 
 /**
+ * 软断言。
  * <p>
  * Suppose we have a test case and in it we'd like to make numerous assertions. In this case, we're hosting a dinner
  * party and we want to ensure not only that all our guests survive but also that nothing in the mansion has been unduly
