@@ -14,6 +14,7 @@ package org.assertj.core.api;
 
 /**
  * Provides a {@link Assert} for the current object.
+ * 为当前对象提供断言。
  * 
  * <p>Used to map an object to its Assert without having to create a new "Assertions" class.</p>
  * 

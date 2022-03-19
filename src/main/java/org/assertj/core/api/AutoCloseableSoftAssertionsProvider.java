@@ -14,6 +14,7 @@ package org.assertj.core.api;
 
 /**
  * Parent interface for soft assertion implementations.
+ * 用于软断言实现的父接口。
  *
  * @author Fr Jeremy Krieg
  * @see AbstractSoftAssertions
