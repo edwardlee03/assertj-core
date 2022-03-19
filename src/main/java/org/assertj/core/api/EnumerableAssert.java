@@ -16,6 +16,7 @@ import java.util.Comparator;
 
 /**
  * Assertions applicable to groups of values that can be enumerated (e.g. arrays, collections or strings.)
+ * 适用于可枚举值组的断言方法，例如数组、集合或字符串。
  *
  * @param <SELF> the "self" type of this assertion class. Please read &quot;<a href="http://bit.ly/1IZIRcY"
  *          target="_blank">Emulating
