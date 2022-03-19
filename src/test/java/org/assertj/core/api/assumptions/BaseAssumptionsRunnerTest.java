@@ -74,6 +74,9 @@ public abstract class BaseAssumptionsRunnerTest {
     sam = TolkienCharacter.of("Sam", 35, Race.HOBBIT);
   }
 
+  // 参数化测试数据
+  // 方法源头
+
   @ParameterizedTest
   @MethodSource("provideAssumptionsRunners")
   void should_ignore_test_when_assumption_fails(AssumptionRunner<?> assumptionRunner) {

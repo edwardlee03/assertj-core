@@ -26,23 +26,28 @@ class Assumptions_assumeThat_Test {
   @Test
   void should_ignore_test_when_one_of_the_assumption_fails() {
     assumeThat("foo").isNotEmpty();
-    expectAssumptionNotMetException(() -> assumeThat("bar").isEmpty());
+    expectAssumptionNotMetException(
+        () -> assumeThat("bar").isEmpty()
+    );
   }
 
   @Test
   void should_run_test_when_all_assumptions_are_met() {
     assertThatCode(() -> {
-      assumeThat("foo").isNotNull()
-                       .isNotEmpty()
-                       .isEqualTo("foo");
-      assumeThat("bar").contains("ar")
-                       .isNotBlank();
-      assumeThat(asList("John", "Doe", "Jane", "Doe")).as("test description")
-                                                      .withFailMessage("error message")
-                                                      .withRepresentation(UNICODE_REPRESENTATION)
-                                                      .usingElementComparator(CaseInsensitiveStringComparator.instance)
-                                                      .filteredOn(string -> string.length() == 4)
-                                                      .containsExactly("JOHN", "JANE");
+      assumeThat("foo")
+          .isNotNull()
+          .isNotEmpty()
+          .isEqualTo("foo");
+      assumeThat("bar")
+          .contains("ar")
+          .isNotBlank();
+      assumeThat(asList("John", "Doe", "Jane", "Doe"))
+          .as("test description")
+          .withFailMessage("error message")
+          .withRepresentation(UNICODE_REPRESENTATION)
+          .usingElementComparator(CaseInsensitiveStringComparator.instance)
+          .filteredOn(string -> string.length() == 4)
+          .containsExactly("JOHN", "JANE");
     }).doesNotThrowAnyException();
   }
 

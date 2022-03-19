@@ -292,6 +292,9 @@ class Assumptions_assumeThat_with_various_java_8_types_Test {
                      });
   }
 
+  // 参数化测试数据
+  // 方法源头
+
   @ParameterizedTest
   @MethodSource("provideAssumptionsRunners")
   void should_ignore_test_when_assumption_fails(AssumptionRunner<?> assumptionRunner) {

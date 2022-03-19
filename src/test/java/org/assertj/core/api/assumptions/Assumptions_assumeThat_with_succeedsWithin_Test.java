@@ -38,8 +38,9 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    ThrowingCallable code = () -> assumeThat(future).succeedsWithin(1, MILLISECONDS)
-                                                    .isEqualTo(value);
+    ThrowingCallable code = () -> assumeThat(future)
+        .succeedsWithin(1, MILLISECONDS)
+        .isEqualTo(value);
     // THEN
     assertThatCode(code).doesNotThrowAnyException();
   }
@@ -50,8 +51,11 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    expectAssumptionNotMetException(() -> assumeThat(future).succeedsWithin(1, MILLISECONDS)
-                                                            .isEqualTo("eeek!"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(future)
+            .succeedsWithin(1, MILLISECONDS)
+            .isEqualTo("eeek!")
+    );
   }
 
   @Test
@@ -60,8 +64,9 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    ThrowingCallable code = () -> assumeThat(future).succeedsWithin(1, MILLISECONDS, as(STRING))
-                                                    .startsWith("oo");
+    ThrowingCallable code = () -> assumeThat(future)
+        .succeedsWithin(1, MILLISECONDS, as(STRING))
+        .startsWith("oo");
     // THEN
     assertThatCode(code).doesNotThrowAnyException();
   }
@@ -72,8 +77,11 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    expectAssumptionNotMetException(() -> assumeThat(future).succeedsWithin(1, MILLISECONDS, as(STRING))
-                                                            .startsWith("eek"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(future)
+            .succeedsWithin(1, MILLISECONDS, as(STRING))
+            .startsWith("eek")
+    );
   }
 
   @Test
@@ -82,8 +90,9 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    ThrowingCallable code = () -> assumeThat(future).succeedsWithin(ONE_MILLIS)
-                                                    .isEqualTo(value);
+    ThrowingCallable code = () -> assumeThat(future)
+        .succeedsWithin(ONE_MILLIS)
+        .isEqualTo(value);
     // THEN
     assertThatCode(code).doesNotThrowAnyException();
   }
@@ -94,8 +103,11 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    expectAssumptionNotMetException(() -> assumeThat(future).succeedsWithin(ONE_MILLIS)
-                                                            .isEqualTo("eeek!"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(future)
+            .succeedsWithin(ONE_MILLIS)
+            .isEqualTo("eeek!")
+    );
   }
 
   @Test
@@ -104,8 +116,9 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    ThrowingCallable code = () -> assumeThat(future).succeedsWithin(ONE_MILLIS, as(STRING))
-                                                    .startsWith("oo");
+    ThrowingCallable code = () -> assumeThat(future)
+        .succeedsWithin(ONE_MILLIS, as(STRING))
+        .startsWith("oo");
     // THEN
     assertThatCode(code).doesNotThrowAnyException();
   }
@@ -116,7 +129,10 @@ class Assumptions_assumeThat_with_succeedsWithin_Test {
     String value = "ook!";
     CompletableFuture<String> future = completedFuture(value);
     // WHEN
-    expectAssumptionNotMetException(() -> assumeThat(future).succeedsWithin(ONE_MILLIS, as(STRING))
-                                                            .startsWith("eek"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(future)
+            .succeedsWithin(ONE_MILLIS, as(STRING))
+            .startsWith("eek")
+    );
   }
 }

@@ -38,12 +38,13 @@ class Assumptions_assumeThat_with_filteredOn_Test {
 
   @Test
   void should_run_test_when_assumption_with_filtered_elements_passes() {
-    assertThatCode(() -> assumeThat(jedis).filteredOn("name", "Luke").contains(luke)).doesNotThrowAnyException();
+    assertThatCode(() -> assumeThat(jedis).filteredOn("name", "Luke").contains(luke))
+        .doesNotThrowAnyException();
   }
 
   @Test
   void should_ignore_test_when_assumption_with_filtered_elements_fails() {
     expectAssumptionNotMetException(() -> assumeThat(jedis).filteredOn("name", "Luke")
-                                                           .contains(yoda));
+        .contains(yoda));
   }
 }

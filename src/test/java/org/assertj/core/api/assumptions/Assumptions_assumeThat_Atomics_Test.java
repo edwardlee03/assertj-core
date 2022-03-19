@@ -178,6 +178,9 @@ class Assumptions_assumeThat_Atomics_Test {
                      });
   }
 
+  // 参数化测试数据
+  // 方法源头
+
   @ParameterizedTest
   @MethodSource("provideAssumptionsRunners")
   void should_ignore_test_when_assumption_fails(AssumptionRunner<?> assumptionRunner) {

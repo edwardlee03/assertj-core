@@ -26,14 +26,16 @@ class Assumptions_assumeThat_with_Stream_Test {
   @Test
   void stream_test() {
     Stream<String> stream = Stream.of("test");
-    expectAssumptionNotMetException(() -> assumeThat(stream).containsAnyOf("other",
-                                                                           "foo"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(stream).containsAnyOf("other", "foo")
+    );
   }
 
   @Test
   void list_test() {
     List<String> list = newArrayList("test");
-    expectAssumptionNotMetException(() -> assumeThat(list).contains("other",
-                                                                    "foo"));
+    expectAssumptionNotMetException(
+        () -> assumeThat(list).contains("other", "foo")
+    );
   }
 }

@@ -94,6 +94,7 @@ import net.bytebuddy.implementation.bind.annotation.This;
 
 /**
  * Entry point for assumption methods for different types, which allow to skip test execution on failed assumptions.
+ * 不同类型的假设方法的入口点，她允许跳过对失败假设的测试执行。
  * @since 2.9.0 / 3.9.0
  */
 @CheckReturnValue
@@ -103,13 +104,20 @@ public class Assumptions {
    * This NamingStrategy takes the original class's name and adds a suffix to distinguish it.
    * The default is ByteBuddy but for debugging purposes, it makes sense to add AssertJ as a name.
    */
-  private static final ByteBuddy BYTE_BUDDY = new ByteBuddy().with(TypeValidation.DISABLED)
-                                                             .with(new AuxiliaryType.NamingStrategy.SuffixingRandom("Assertj$Assumptions"));
+  private static final ByteBuddy BYTE_BUDDY = new ByteBuddy()
+      .with(TypeValidation.DISABLED)
+      .with(new AuxiliaryType.NamingStrategy.SuffixingRandom("Assertj$Assumptions"));
 
+  /**
+   * 假设方法代理实现
+   */
   private static final Implementation ASSUMPTION = MethodDelegation.to(AssumptionMethodInterceptor.class);
 
   private static final TypeCache<TypeCache.SimpleKey> CACHE = new TypeCache.WithInlineExpunction<>(Sort.SOFT);
 
+  /**
+   * 假设方法拦截器
+   */
   private static final class AssumptionMethodInterceptor {
 
     @RuntimeType
@@ -1310,15 +1318,17 @@ public class Assumptions {
 
   // private methods
 
-  private static <ASSERTION, ACTUAL> ASSERTION asAssumption(Class<ASSERTION> assertionType,
-                                                            Class<ACTUAL> actualType,
-                                                            Object actual) {
+  private static <ASSERTION, ACTUAL> ASSERTION asAssumption(
+      Class<ASSERTION> assertionType,
+      Class<ACTUAL> actualType,
+      Object actual) {
     return asAssumption(assertionType, array(actualType), array(actual));
   }
 
-  private static <ASSERTION> ASSERTION asAssumption(Class<ASSERTION> assertionType,
-                                                    Class<?>[] constructorTypes,
-                                                    Object... constructorParams) {
+  private static <ASSERTION> ASSERTION asAssumption(
+      Class<ASSERTION> assertionType,
+      Class<?>[] constructorTypes,
+      Object... constructorParams) {
     try {
       Class<? extends ASSERTION> type = createAssumptionClass(assertionType);
       Constructor<? extends ASSERTION> constructor = type.getConstructor(constructorTypes);
@@ -1329,21 +1339,24 @@ public class Assumptions {
   }
 
   @SuppressWarnings("unchecked")
-  private static <ASSERTION> Class<? extends ASSERTION> createAssumptionClass(Class<ASSERTION> assertClass) {
+  private static <ASSERTION> Class<? extends ASSERTION> createAssumptionClass(
+      Class<ASSERTION> assertClass) {
     SimpleKey cacheKey = new SimpleKey(assertClass);
-    return (Class<ASSERTION>) CACHE.findOrInsert(assertClass.getClassLoader(),
-                                                 cacheKey,
-                                                 () -> generateAssumptionClass(assertClass));
+    return (Class<ASSERTION>) CACHE.findOrInsert(
+        assertClass.getClassLoader(),
+        cacheKey,
+        () -> generateAssumptionClass(assertClass));
   }
 
-  protected static <ASSERTION> Class<? extends ASSERTION> generateAssumptionClass(Class<ASSERTION> assertionType) {
+  protected static <ASSERTION> Class<? extends ASSERTION> generateAssumptionClass(
+      Class<ASSERTION> assertionType) {
     ClassLoadingStrategyPair strategy = classLoadingStrategy(assertionType);
     return BYTE_BUDDY.subclass(assertionType)
-                     .method(any().and(not(METHODS_NOT_TO_PROXY)))
-                     .intercept(ASSUMPTION)
-                     .make()
-                     .load(strategy.getClassLoader(), strategy.getClassLoadingStrategy())
-                     .getLoaded();
+        .method(any().and(not(METHODS_NOT_TO_PROXY)))
+        .intercept(ASSUMPTION)
+        .make()
+        .load(strategy.getClassLoader(), strategy.getClassLoadingStrategy())
+        .getLoaded();
   }
 
   // for method that change the object under test (e.g. extracting)
